@@ -1,0 +1,29 @@
+;; === Home Row Mods for QWERTY using Kanata ===
+(defcfg
+  process-unmapped-keys yes
+)
+
+;; Tap-hold thresholds (tweak to taste)
+(defvar tap-time 180     ;; max time (ms) for a tap
+       hold-time 180)
+
+;; Define source keys
+(defsrc a s d f  j k l ;)
+
+;; Define tap-hold behaviors
+(defalias
+  a_mod (tap-hold 180 180 a lalt)
+  s_mod (tap-hold 180 180 s lmet)
+  d_mod (tap-hold 180 180 d lsft)
+  f_mod (tap-hold 180 180 f lctl)
+
+  j_mod (tap-hold 180 180 j rctl)
+  k_mod (tap-hold 180 180 k rsft)
+  l_mod (tap-hold 180 180 l rmet)
+  smod (tap-hold 180 180 ; ralt)
+)
+
+;; Base typing layer with mods applied
+(deflayer base
+  @a_mod @s_mod @d_mod @f_mod   @j_mod @k_mod @l_mod @smod
+)
